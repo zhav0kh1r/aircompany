@@ -6,19 +6,12 @@ import Planes.Plane;
 
 import java.util.*;
 
-// version: 1.1
-// made by Vitali Shulha
-// 4-Jan-2019
-
 public class Airport {
     private List<? extends Plane> planes;
 
-
-
     public List<PassengerPlane> getPassengerPlanes() {
-        List<? extends Plane> planes = this.planes;
         List<PassengerPlane> passengerPlanesList = new ArrayList<>();
-        for (Plane plane : planes) 
+        for (Plane plane : planes)
         {
             if (plane instanceof PassengerPlane) {
                 passengerPlanesList.add((PassengerPlane) plane);
@@ -94,7 +87,7 @@ public class Airport {
     public Airport sortByMaxSpeed() {
         Collections.sort(planes, new Comparator<Plane>() {
             public int compare(Plane o1, Plane o2) {
-                return o1.getMS() - o2.getMS();
+                return o1.getMaxSpeed() - o2.getMaxSpeed();
             }
         });
         return this;
